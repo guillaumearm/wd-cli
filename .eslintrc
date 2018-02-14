@@ -1,0 +1,26 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+    },
+  },
+  "plugins": [
+    "node",
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+  ],
+  "rules": {
+    "no-var": "error",
+    "node/no-unpublished-require": ["error", {
+      "allowModules": ["conventional-recommended-bump"]
+    }],
+    "no-multi-spaces": ["error"],
+    "node/exports-style": ["error", "module.exports"]
+  }
+}
