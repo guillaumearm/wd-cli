@@ -2,8 +2,12 @@
   "name": "wd-cli",
   "version": "0.1.0",
   "description": "cli for setting working directories",
-  "main": "index.js",
+  "bin": {
+    "wd": "./src/index.js"
+  },
+  "main": "src/index.js",
   "scripts": {
+    "start": "NODE_ENV=production ./src/index.js",
     "test": "echo Test not implemented yet.",
     "lint": "eslint .",
     "test:all": "npm run lint && npm run test",
