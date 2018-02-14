@@ -1,4 +1,4 @@
-wd-cli :rocket: :file_folder:
+[WIP] - wd-cli :rocket: :file_folder:
 =============
 
 `wd` is a cli tool for saving multiple working directories and access it simply
