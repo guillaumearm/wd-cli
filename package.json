@@ -1,0 +1,29 @@
+{
+  "name": "wd-cli",
+  "version": "0.1.0",
+  "description": "cli for setting working directories",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wd",
+    "cli",
+    "working-directory",
+    "developer-experience",
+    "dx"
+  ],
+  "author": "Guillaume ARM",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillaumearm/wd-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guillaumearm/wd-cli/issues"
+  },
+  "homepage": "https://github.com/guillaumearm/wd-cli#readme",
+  "engines": {
+    "node": ">=8.9.0"
+  }
+}
