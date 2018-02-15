@@ -13,7 +13,7 @@
     "clean": "rimraf dist",
     "test": "echo Test not implemented yet.",
     "lint": "eslint .",
-    "test:all": "npm run lint && npm run test",
+    "test:all": "npm run clean && npm run lint && npm run build && npm run test",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "create-changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "bump": "conventional-bump"
