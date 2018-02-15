@@ -64,6 +64,7 @@
     }
   },
   "dependencies": {
+    "lodash.isequal": "^4.5.0",
     "ramda": "^0.25.0"
   }
 }
