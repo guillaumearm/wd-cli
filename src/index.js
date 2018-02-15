@@ -1,1 +1,1 @@
-#!/usr/bin/env node -r @babel/register
+#!/usr/bin/env node
