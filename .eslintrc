@@ -3,11 +3,7 @@
     "es6": true,
     "node": true,
   },
-  "parserOptions": {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-    },
-  },
+  "parser": "babel-eslint", 
   "plugins": [
     "node",
   ],

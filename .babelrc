@@ -1,0 +1,9 @@
+{
+  "presets": [
+    "@babel/preset-stage-0"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-pipeline-operator",
+    "@babel/plugin-proposal-optional-chaining"
+  ]
+}
