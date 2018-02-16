@@ -6,8 +6,8 @@
 ### e.g. :
 
 ```bash
-$ wd -a ~/projects/wd-cli # add folder in workdirs pools
-$ wd wd-cli # cd into wd-cli workdir
+$ wd -a ~/projects/myProject # add folder in workdirs pools
+$ wd myProject # cd into myProject workdir
 
 $ wd -d . # set default workdir
 $ wd # cd into default workdir
