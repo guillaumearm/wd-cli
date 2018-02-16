@@ -32,12 +32,56 @@ const createHandler = (fxGen, args) => {
   return handlerObject
 }
 
-const fxEquals = (lfx, rfx) => {
-  return isEqual(lfx.f, rfx.f) && isEqual(lfx.args, rfx.args)
+const stringify = x => JSON.stringify(x, null, 2);
+
+const createTestRunner = (mockedFxs = []) => {
+  let mockIndex = 0;
+  return fx => {
+    if (!mockedFxs[mockIndex]) {
+      throw new Error('Mocked fxs should be exhaustive')
+    }
+    const [expectedFx, mockedRetValue] = mockedFxs[mockIndex];
+    if (!isEqual(fx.f, expectedFx.f)) {
+      throw new Error(`Invalid fx#${mockIndex} function`)
+    }
+    if (!isEqual(fx.args, expectedFx.args)) {
+      const expectedArgs = stringify(expectedFx.args);
+      const fxArgs = stringify(fx.args);
+      throw new Error(`Invalid fx#${mockIndex} function arguments: expected \n${expectedArgs}\nbut got \n${fxArgs}`)
+    }
+    mockIndex += 1;
+    return mockedRetValue;
+  }
+}
+
+const TestHandler = (h, mockedFxs = [], expectedRetValue, assertRet = false) => {
+  return {
+    matchFx: (fx, ret) => TestHandler(
+      h,
+      [...mockedFxs, [fx, ret]],
+      expectedRetValue,
+      assertRet
+    ),
+    shouldReturn: (expected) => TestHandler(h, mockedFxs, expected, true),
+    run: () => {
+      // 1. should be a handler
+      if (typeof h !== 'function') {
+        throw new Error('Handler should be a function')
+      }
+
+      // 2. run handler using testRunner to get a retValue
+      const retValue = h.run(createTestRunner(mockedFxs))
+
+      // 3. expectedRetValue and retValue should be equal
+      if (assertRet && !isEqual(expectedRetValue, retValue)) {
+        throw new Error(`Invalid returned value : expected ${expectedRetValue} but got ${retValue}`)
+      }
+    }
+  }
 }
 
 module.exports = {
   handler: (fxGen) => createHandler(fxGen),
   fx: (f) => createFx(f, null),
-  fxEquals,
+  testHandler: (h) => TestHandler(h),
 }
