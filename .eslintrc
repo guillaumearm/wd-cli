@@ -3,7 +3,7 @@
     "es6": true,
     "node": true,
   },
-  "parser": "babel-eslint", 
+  "parser": "babel-eslint",
   "plugins": [
     "node",
   ],
@@ -13,9 +13,6 @@
   ],
   "rules": {
     "no-var": "error",
-    "node/no-unpublished-require": ["error", {
-      "allowModules": ["conventional-recommended-bump"]
-    }],
     "no-multi-spaces": ["error"],
     "node/exports-style": ["error", "module.exports"]
   }
